@@ -4,8 +4,7 @@
   "description": "index.html",
   "scripts": {
     "start": "npm run build && node ./server.js",
-    "dev": "npm run build && parcel ./static/registration.html --port 3000",
-    "build": "npm run clear && parcel build static/*.html --no-source-maps",
+    "build": "npm run build && node ./server.js --no-source-maps --no-cache --public-url ./",
     "clear": "rm -rf dist .cache .parcel-cache",
     "stylelint": "stylelint '**/*.css'",
     "eslint": "eslint ./ --ext .js"
