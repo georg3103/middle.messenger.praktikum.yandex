@@ -49,7 +49,7 @@
   &--me {
     .message-item-day__wrapper {
       margin-left: auto;
-      background-color: #e4edfd;
+      background-color: $light-blue;
       border-radius: 12px 12px 0;
     }
 

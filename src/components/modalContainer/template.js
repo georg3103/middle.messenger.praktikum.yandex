@@ -12,7 +12,7 @@ export default
         </div>
     {{/if}}
     <div class="modal-container__actions">
-        <button class="button">
+        <button type="button" class="button">
             {{btnText}}
         </button>
     </div>

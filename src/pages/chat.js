@@ -65,17 +65,21 @@ const messagesContent = () => {
     type, text, time, imgSrc, seen,
   }) => {
     const hasImage = !!imgSrc;
-    return hasImage
-      ? messageItemImg.render({
-        imgSrc,
-        time,
-      })
-      : messageItemText.render({
-        message: text,
-        time,
-        type,
-        seen,
-      });
+
+    const imageProps = {
+      imgSrc,
+      time,
+    };
+
+    const props = {
+      message: text,
+      time,
+      type,
+      seen,
+    };
+
+    const ctx = hasImage ? imageProps : props;
+    return messageItemImg.render(ctx);
   }).join('');
 
   return messageList.render({ content: [compiledDateTime, compiledMessage].join('') });

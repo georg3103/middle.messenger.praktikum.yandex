@@ -1,6 +1,6 @@
 export default
 `<div class="profile-block {{class}}">
-    <button class="profile-block__edit-avatar">
+    <button type="button" class="profile-block__edit-avatar">
         {{avatar}}
     </button>
     <h2 class="profile-block__name">{{name}}</h2>
