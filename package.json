@@ -1,0 +1,56 @@
+{
+  "name": "yandex",
+  "version": "1.0.0",
+  "description": "index.html",
+  "scripts": {
+    "start": "npm run build && node ./server.js",
+    "build": "npm run clear && parcel build static/*.html --no-source-maps",
+    "clear": "rm -rf dist .cache .parcel-cache",
+    "stylelint": "stylelint '**/*.css'",
+    "eslint": "eslint ./ --ext .js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "browserslist": "last 2 versions",
+  "devDependencies": {
+    "cssnano": "^5.0.14",
+    "eslint": "^8.6.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.4",
+    "lint-staged": "^12.1.7",
+    "parcel": "^2.1.1",
+    "parcel-plugin-static-files-copy": "^2.6.0",
+    "postcss": "^8.4.5",
+    "postcss-advanced-variables": "^3.0.1",
+    "postcss-cli": "^9.1.0",
+    "postcss-font-magician": "^3.0.0",
+    "postcss-import": "^14.0.2",
+    "postcss-mixins": "^9.0.1",
+    "postcss-modules": "^4.3.0",
+    "postcss-nested": "^5.0.6",
+    "postcss-normalize": "^10.0.1",
+    "postcss-preset-env": "^7.2.0",
+    "postcss-simple-vars": "^6.0.3",
+    "prettier": "^2.5.1",
+    "stylelint": "^14.2.0",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-rational-order": "^0.1.2",
+    "stylelint-config-standard": "^24.0.0",
+    "stylelint-order": "^5.0.0",
+    "stylelint-prettier": "^2.0.0"
+  },
+  "lint-staged": {
+    "*.(css|scss)": [
+      "stylelint --fix"
+    ]
+  },
+  "staticFiles": {
+    "staticPath": "static",
+    "watcherGlob": "**"
+  },
+  "dependencies": {
+    "handlebars": "^4.7.7",
+    "express": "^4.17.2"
+  }
+}
