@@ -29,7 +29,7 @@ const queryStringify = (data: object): string => {
   }, '?');
 };
 
-class HTTPTransport {
+export default class HTTPTransport {
   get = (url: string, options: Options): Promise<any> => {	 
     return this.request(url, {...options, method: METHODS.GET}, options.timeout);
   };
