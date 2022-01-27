@@ -1,4 +1,3 @@
-/* eslint-disable no-param-reassign */
 import modal from '../components/modal';
 import modalContainer from '../components/modalContainer';
 import field from '../components/field';
@@ -46,13 +45,13 @@ const template = modal.render({
   ],
 });
 
-const renderModal = () => {
+const renderModal = (): void => {
   renderInDOM(document.querySelector('#modal'), template);
 };
 
-const openModal = (id) => {
-  const $modal = document.querySelector('.modal');
-  const $modalContent = document.querySelector(`.modal__content[data-id='${id}']`);
+const openModal = (id: string): void => {
+  const $modal: HTMLElement = document.querySelector('.modal');
+  const $modalContent: HTMLElement = document.querySelector(`.modal__content[data-id='${id}']`);
 
   if (!$modal && !$modalContent) return;
 
@@ -60,9 +59,9 @@ const openModal = (id) => {
   $modalContent.hidden = false;
 };
 
-const closeModal = (id) => {
-  const $modal = document.querySelector('.modal');
-  const $modalContent = document.querySelector(`.modal__content[data-id='${id}']`);
+const closeModal = (id: string): void => {
+  const $modal: HTMLElement = document.querySelector('.modal');
+  const $modalContent: HTMLElement = document.querySelector(`.modal__content[data-id='${id}']`);
 
   if (!$modal && !$modalContent) return;
 
@@ -70,19 +69,19 @@ const closeModal = (id) => {
   $modalContent.hidden = true;
 };
 
-const handleCloseModal = ($modalInner, $modalContent, e) => {
+const handleCloseModal = ($modalInner: HTMLElement, $modalContent: NodeListOf<HTMLElement>, e) => {
   if (e.target === $modalInner) {
     $modalContent.forEach((el) => {
       el.hidden = true;
     });
 
-    $modalInner.parentNode.hidden = true;
+    $modalInner.parentElement.hidden = true;
   }
 };
 
 const initEvents = () => {
-  const $modalInner = document.querySelector('.modal__inner');
-  const $modalContent = document.querySelectorAll('.modal__content');
+  const $modalInner: HTMLElement = document.querySelector('.modal__inner');
+  const $modalContent: NodeListOf<HTMLElement> = document.querySelectorAll('.modal__content');
 
   if (!$modalInner || !$modalContent) {
     return;
