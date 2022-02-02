@@ -7,17 +7,13 @@ import './styles.module.css';
 
 interface Props {
   name: string;
-  imgSrc: string;
+  imgSrc?: string;
+  avatar: Block;
 }
 
 export default class Header extends Block {
 	constructor(props: Props) {
-		const components = {
-			avatar: new Avatar({
-				imgSrc: props.imgSrc,
-			}),
-		};
-		super('div', {...props, components});
+    super('div', props);
 	}
 
 	render() {

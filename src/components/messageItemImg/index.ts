@@ -5,8 +5,8 @@ import Block from '../../modules/Block';
 import './styles.module.css';
 
 interface Props {
-  imgSrc: string;
-  time: string;
+  imgSrc?: string;
+  time?: string;
 }
 
 export default class MessageItemImg extends Block {

@@ -1,5 +1,6 @@
-const renderInDOM = (element:HTMLElement | null, innerHTML:any): void => {
+const renderInDOM = (element: HTMLElement | null, innerHTML: any): void => {
 	if (element) {
+		console.log('innerHTML', innerHTML);
 		element.appendChild(innerHTML);
 	}
 };

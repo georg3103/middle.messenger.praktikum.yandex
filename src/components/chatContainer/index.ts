@@ -5,14 +5,15 @@ import Block from '../../modules/Block';
 import './styles.module.css';
 
 interface Props {
-  href?: string;
   class?: string;
-  linkName: string;
+  isEmpty: boolean;
+  contentHeader?: Block | Block[];
+  contentMain?: Block | Block[];
+  contentFooter?: Block | Block[];
 }
 
-export default class Link extends Block {
+export default class ChatContainer extends Block {
   constructor(props: Props) {
-    // console.log('props', props);
     super('div', props);
   }
 
@@ -20,3 +21,4 @@ export default class Link extends Block {
 		return Handlebars.compile(template, { noEscape: true });
 	}
 }
+

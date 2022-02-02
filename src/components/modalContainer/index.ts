@@ -5,14 +5,15 @@ import Block from '../../modules/Block';
 import './styles.module.css';
 
 interface Props {
-  href?: string;
   class?: string;
-  linkName: string;
+  title?: string;
+  errorTitle?: string;
+  contentMain: Block;
+  btnText?: string;
 }
 
-export default class Link extends Block {
+export default class ModalContainer extends Block {
   constructor(props: Props) {
-    // console.log('props', props);
     super('div', props);
   }
 

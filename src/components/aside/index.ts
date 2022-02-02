@@ -5,14 +5,13 @@ import Block from '../../modules/Block';
 import './styles.module.css';
 
 interface Props {
-  href?: string;
   class?: string;
-  linkName: string;
+  contentTop: Block | Block[];
+  content: Block | Block[];
 }
 
-export default class Link extends Block {
+export default class Aside extends Block {
   constructor(props: Props) {
-    // console.log('props', props);
     super('div', props);
   }
 

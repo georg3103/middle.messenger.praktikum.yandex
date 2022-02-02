@@ -98,6 +98,7 @@ export default class Block {
     return Object.entries(this.props)
       .reduce((acc, item) => {
         const [ key, instance ] = item;
+        console.log('key, instance', key, instance);
         const isBlockArray = Array.isArray(instance) && instance.every(item => item instanceof Block);
         if (instance instanceof Block || isBlockArray) {
           // console.log('instance.getContent()', instance.getContent());
@@ -150,7 +151,7 @@ export default class Block {
           console.log('subComponents !!', subComponents);
 
           if (Array.isArray(instance)) {
-            console.log('Array.isArray(instance)', instance, subComponents)
+            console.log('Array.isArray(instance)', key, instance, subComponents)
             instance.forEach((instanceEl: Block) => subComponents.forEach(subComponent => {
               console.log('subComponent1', subComponent);
               subComponent.insertAdjacentElement('beforebegin', instanceEl.getContent())

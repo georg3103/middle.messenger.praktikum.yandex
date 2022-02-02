@@ -9,7 +9,7 @@ interface Props {
   name: string;
   type: string;
   class?: string;
-  value: string;
+  value?: string;
 }
 
 export default class Field extends Block {

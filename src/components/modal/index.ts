@@ -1,22 +1,29 @@
 import Handlebars from 'handlebars';
 import template from './template';
+import data from './data';
 import Block from '../../modules/Block';
 
 import './styles.module.css';
 
-interface Props {
-  href?: string;
-  class?: string;
-  linkName: string;
+type ModalItem = {
+  id: string;
+  content: Block;
 }
 
-export default class Link extends Block {
+interface Props {
+  contentList: ModalItem[];
+}
+
+export default class Modal extends Block {
   constructor(props: Props) {
-    // console.log('props', props);
     super('div', props);
   }
 
   render(): Function {
 		return Handlebars.compile(template, { noEscape: true });
 	}
+}
+
+export {
+  data
 }

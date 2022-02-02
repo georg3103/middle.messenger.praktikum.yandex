@@ -1,52 +1,49 @@
-import modal from '../components/modal';
-import modalContainer from '../components/modalContainer';
-import field from '../components/field';
-import link from '../components/link';
+import Modal, { data } from '../components/modal';
+import ModalContainer from '../components/modalContainer';
+import Field from '../components/field';
+import Link from '../components/link';
 
 import renderInDOM from '../utils/renderInDOM';
 
-const template = modal.render({
+const template = new Modal({
   contentList: [
     {
-      id: modal.data.addUser.id,
-      content: modalContainer.render({
-        ...modal.data.addUser,
-        contentMain: field.render({
+      id: data.addUser.id,
+      content: new ModalContainer({
+        ...data.addUser,
+        contentMain: new Field({
           label: 'Логин',
           name: 'login',
           type: 'text',
         }),
-        btnTxt: modal.data.addUser.btnText,
       }),
     },
     {
-      id: modal.data.removeUser.id,
-      content: modalContainer.render({
-        ...modal.data.removeUser,
-        contentMain: field.render({
+      id: data.removeUser.id,
+      content: new ModalContainer({
+        ...data.removeUser,
+        contentMain: new Field({
           label: 'Логин',
           name: 'login',
           type: 'text',
         }),
-        btnTxt: modal.data.removeUser.btnText,
       }),
     },
     {
-      id: modal.data.uploadFile.id,
-      content: modalContainer.render({
-        ...modal.data.uploadFile,
-        contentMain: link.render({
+      id: data.uploadFile.id,
+      content: new ModalContainer({
+        ...data.uploadFile,
+        contentMain: new Link({
           linkName: 'Выбрать файл на компьютере',
           class: 'link--blue chat-form__link link--modal',
         }),
-        btnTxt: modal.data.uploadFile.btnText,
       }),
     },
   ],
 });
 
 const renderModal = (): void => {
-  renderInDOM(document.querySelector('#modal'), template);
+  renderInDOM(document.querySelector('#modal'), template.getContent());
 };
 
 const openModal = (id: string): void => {

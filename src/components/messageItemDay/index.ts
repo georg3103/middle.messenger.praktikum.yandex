@@ -5,14 +5,14 @@ import Block from '../../modules/Block';
 import './styles.module.css';
 
 interface Props {
-  href?: string;
-  class?: string;
-  linkName: string;
+  type: string;
+  isDataTime: boolean;
+  time: string;
+  message: string;
 }
 
-export default class Link extends Block {
+export default class MessageItemDay extends Block {
   constructor(props: Props) {
-    // console.log('props', props);
     super('div', props);
   }
 

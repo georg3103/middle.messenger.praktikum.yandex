@@ -7,7 +7,7 @@ import './styles.css';
 
 interface Props {
   type: string;
-  content: string | Block; // TODO:
+  content: string | Block | Block[]; // TODO:
 }
 
 export default class Layout extends Block {
