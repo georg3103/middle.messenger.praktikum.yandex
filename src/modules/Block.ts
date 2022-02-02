@@ -1,7 +1,9 @@
 import {v4 as makeUUID} from 'uuid';
-import EventBus from '../EventBus';
+import EventBus from './EventBus';
 
 const componentAttr = 'data-component';
+
+const makeComponentContainer = (key) => `<div ${componentAttr}="${key}"></div>`
 
 interface Props {
   components?: Record<string, Block>;
@@ -17,15 +19,16 @@ export default class Block {
   };
 
   eventBus: EventBus;
+  props: Props & Record<string, any>;
   _element: HTMLElement;
   _meta: {
     tagName: string;
-    props: Props;
+    props: Props & Record<string, any>;
   };
   _id: string;
-  props: Props;
 
-  constructor(tagName: string, props: Props) {
+  constructor(tagName: string, props: Props & Record<string, any>) {
+    console.log('tagName', tagName, props);
     this._meta = {
       tagName,
       props,
@@ -33,6 +36,8 @@ export default class Block {
 
     this._id = makeUUID();
     this.props = this._makePropsProxy(props);
+
+    console.log('this.props', this.props);
 
     this.eventBus = new EventBus();
 
@@ -81,11 +86,26 @@ export default class Block {
 
   _render(): void {
     const compileTemplate = this.render();
-    const html = compileTemplate(this.props);
+    const html = compileTemplate(this._preCompileTemplate());
+    console.log('html', html);
     const element = this._compileDomElement(html);
     this._element.insertAdjacentElement('afterbegin', element);
     this._removeEvents();
     this._addEvents();
+  }
+
+  _preCompileTemplate() {
+    return Object.entries(this.props)
+      .reduce((acc, item) => {
+        const [ key, instance ] = item;
+        const isBlockArray = Array.isArray(instance) && instance.every(item => item instanceof Block);
+        if (instance instanceof Block || isBlockArray) {
+          // console.log('instance.getContent()', instance.getContent());
+          return { ...acc, [key]: makeComponentContainer(key) };
+        }
+        console.log('instance', instance);
+        return { ...acc, [key]: instance };
+      }, {});
   }
 
   _removeEvents(): void {
@@ -106,25 +126,41 @@ export default class Block {
     const { body } = new DOMParser().parseFromString(tmpl, 'text/html');
     const element = body?.children[0] as HTMLElement;
 
-    if (this.props.components && !!element) {
-      Object.entries(this.props.components).forEach((item) => {
-        const [ key, instance ] = item;
-        const subComponents = element.querySelectorAll(`${componentAttr}=${key}`);
-        const subComponentsParent = subComponents[0].parentElement;
+    console.log('this.props.components', this.props);
 
-        if (!subComponents) {
-          return element;
-        }
+    if (this.props && !!element) {
+      Object.entries(this.props)
+        // .filter(([_, instance]) => {
+        //   console.log('12', _, instance);
+        //   return instance instanceof Block;
+        // })
+        .forEach((item) => {
+          const [ key, instance ] = item;
 
-        if (Array.isArray(instance)) {
-          instance.forEach((instanceEl: Block) => subComponents.forEach(subComponent => 
-            subComponent.insertAdjacentElement('beforebegin', instanceEl.getContent())
-          ));
-        } else {
-          subComponents.forEach(subComponent => subComponent.insertAdjacentElement('beforebegin', instance.getContent()))
-        }
+          console.log('_compileDomElement instance', instance, key);
+          console.log('_compileDomElement element', element.querySelectorAll(`[data-component="${key}"]`));
 
-        subComponents.forEach(subComponent => subComponentsParent.removeChild(subComponent));
+          const subComponents = element.querySelectorAll(`[data-component="${key}"]`);
+          const subComponentsParent = subComponents[0]?.parentElement;
+
+          if (!subComponents) {
+            return element;
+          }
+
+          console.log('subComponents !!', subComponents);
+
+          if (Array.isArray(instance)) {
+            console.log('Array.isArray(instance)', instance, subComponents)
+            instance.forEach((instanceEl: Block) => subComponents.forEach(subComponent => {
+              console.log('subComponent1', subComponent);
+              subComponent.insertAdjacentElement('beforebegin', instanceEl.getContent())
+            }
+            ));
+          } else {
+            subComponents.forEach(subComponent => subComponent.insertAdjacentElement('beforebegin', instance.getContent()))
+          }
+
+          subComponents.forEach(subComponent => subComponentsParent.removeChild(subComponent));
       })
     }
 
@@ -167,7 +203,7 @@ export default class Block {
       },
       set(target: Props, prop: string, value): boolean {
         target[prop] = value;
-        self._componentDidUpdate<typeof target>(oldProps, target);
+        self._componentDidUpdate(oldProps, target);
         return true;
       },
       deleteProperty() {
