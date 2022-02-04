@@ -18,6 +18,7 @@ interface Props {
   avatar: Block;
   inputList: Input[];
   button: Block;
+  events?: Record<string, (e: Event) => void>;
 }
 
 export default class ProfileEdit extends Block {

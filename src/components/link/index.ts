@@ -12,7 +12,6 @@ interface Props {
 
 export default class Link extends Block {
   constructor(props: Props) {
-    // console.log('props', props);
     super('div', props);
   }
 

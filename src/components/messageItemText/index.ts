@@ -5,9 +5,9 @@ import Block from '../../modules/Block';
 import './styles.module.css';
 
 interface Props {
-  type: string;
-  isDataTime: boolean;
-  time: string;
+  type?: string;
+  isDataTime?: boolean;
+  time?: string;
   message?: string;
   seen?: boolean;
 }

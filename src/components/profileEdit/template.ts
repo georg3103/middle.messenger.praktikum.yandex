@@ -1,5 +1,6 @@
 export default
 `
+<form>
 <div class="profile-block {{class}}">
     <button type="button" class="profile-block__edit-avatar" onclick="modal.openModal('add-file')">
         {{avatar}}
@@ -11,7 +12,7 @@ export default
                 <li class="profile-block__item">
                     <label class="profile-field">
                         <span class="profile-field__name">{{label}}</span>
-                        <input type="{{type}}" class="profile-field__input {{class}}" value="{{value}}" disabled="{{disabled}}">
+                        <input type="{{type}}" name="{{name}}" class="profile-field__input {{class}}" value="{{value}}">
                     </label>
                 </li>
             {{/each}}
@@ -20,4 +21,5 @@ export default
     <div class="profile-button">
         {{button}}
     </div>
-</div>`;
+</div>
+</form>`;

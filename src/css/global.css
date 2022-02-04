@@ -2,6 +2,10 @@
   height: 100%;
 }
 
+#app > div {
+  height: 100%;
+}
+
 .actions {
   position: relative;
   width: 32px;

@@ -3,5 +3,19 @@
     "browser": true,
     "node": true
   },
-  "extends": "eslint-config-airbnb-base"
+  "extends": "eslint-config-airbnb-base",
+  "parser":  "@typescript-eslint/parser",
+  "rules": {
+    "no-unused-vars": "off",
+    "max-params": [2, 3]
+  },
+  "globals": {
+    "document": false,
+    "DOMParser": false,
+    "HTMLElement": false,
+    "HTMLFormElement": false,
+    "window": false,
+    "Event": false,
+    "XMLHttpRequest": false
+  }
 }

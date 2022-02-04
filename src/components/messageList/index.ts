@@ -6,7 +6,7 @@ import Block from '../../modules/Block';
 import './styles.module.css';
 
 interface Props {
-  class: string;
+  class?: string;
   content: Block[];
 }
 

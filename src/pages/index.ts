@@ -15,20 +15,6 @@ import '../css/index.css';
 const layoutContent = [
   new Aside({
     class: 'layout__aside',
-    // content: new ChatList({
-    //   contentList: chatListData.map((item) => {
-    //     const hasCount = item.countNewMessage > 0;
-    //     return new ChatItem({
-    //       ...item,
-    //       avatar: new Avatar({
-    //         class: 'chat-item__avatar',
-    //         imgSrc: item.imgSrc,
-    //       }),
-    //       hasCount,
-    //       href: `${item.href}?id=${item.id}`,
-    //     });
-    //   }),
-    // }),
     content: chatListData.map((item) => {
       const hasCount = item.countNewMessage > 0;
       return new ChatItem({

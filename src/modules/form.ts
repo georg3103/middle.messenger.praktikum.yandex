@@ -3,6 +3,7 @@ const validationMapper: Record<string, RegExp> = {
   tel: /^(\+7|7|8)?[\s-]?\(?[489][0-9]{2}\)?[\s-]?[0-9]{3}[\s-]?[0-9]{2}[\s-]?[0-9]{2}$/,
   email: /^[\w-.]+@([a-z]+\.)+[\w-]{2,4}$/g,
   password: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/,
+  message: /^(?!\s*$).+/
 };
 
 export default class Form {
@@ -51,13 +52,11 @@ export default class Form {
 					_name.textContent = '';
 				}
 			}
-
-			console.log(input);
 		}
 	}
 
 	private checkInputValidated(input:HTMLFormElement): boolean {
-		const _type = input.getAttribute('type');
+    const _type = input.getAttribute('type');
 		const _value = input.value;
 
 		if (_type && _value) {
@@ -72,7 +71,6 @@ export default class Form {
 	}
 
 	private toggleErrorClass(input: HTMLElement, flag: boolean) :void {
-		console.log(input);
 		if (flag) {
 			const _parent = input.parentNode;
 			if (_parent) {

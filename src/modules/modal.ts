@@ -7,39 +7,33 @@ import renderInDOM from '../utils/renderInDOM';
 
 const template = new Modal({
   contentList: [
-    {
+    new ModalContainer({
       id: data.addUser.id,
-      content: new ModalContainer({
-        ...data.addUser,
-        contentMain: new Field({
-          label: 'Логин',
-          name: 'login',
-          type: 'text',
-        }),
+      ...data.addUser,
+      contentMain: new Field({
+        label: 'Логин',
+        name: 'login',
+        type: 'text',
       }),
-    },
-    {
+    }),
+    new ModalContainer({
       id: data.removeUser.id,
-      content: new ModalContainer({
-        ...data.removeUser,
-        contentMain: new Field({
-          label: 'Логин',
-          name: 'login',
-          type: 'text',
-        }),
+      ...data.removeUser,
+      contentMain: new Field({
+        label: 'Логин',
+        name: 'login',
+        type: 'text',
       }),
-    },
-    {
+    }),
+    new ModalContainer({
       id: data.uploadFile.id,
-      content: new ModalContainer({
-        ...data.uploadFile,
-        contentMain: new Link({
-          linkName: 'Выбрать файл на компьютере',
-          class: 'link--blue chat-form__link link--modal',
-        }),
+      ...data.uploadFile,
+      contentMain: new Link({
+        linkName: 'Выбрать файл на компьютере',
+        class: 'link--blue chat-form__link link--modal',
       }),
-    },
-  ],
+    }),
+  ]
 });
 
 const renderModal = (): void => {

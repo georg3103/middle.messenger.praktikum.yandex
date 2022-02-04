@@ -14,13 +14,16 @@ import MessageItemText from '../components/messageItemText';
 import MessageItemImg from '../components/messageItemImg';
 
 import Modal from '../modules/modal';
+import FormModule from '../modules/form';
 
 import renderInDOM from '../utils/renderInDOM';
 
 import '../css/index.css';
 
-const asideContentMain = () => new ChatList({
-  contentList: chatListData.map((item) => {
+const formService = new FormModule();
+
+const asideContentMain = () => 
+  chatListData.map((item) => {
     const hasCount = item.countNewMessage > 0;
     const avatarContent = new Avatar({
       class: 'chat-item__avatar',
@@ -32,8 +35,7 @@ const asideContentMain = () => new ChatList({
       hasCount,
       href: `${item.href}?id=${item.id}`,
     });
-  }),
-});
+  });
 
 const asideContentTop = () => [
   new Link({
@@ -52,7 +54,19 @@ const mainContentHeader = () => new Header({
   name: 'Вадим',
 });
 
-const mainContentFooter = () => new Footer({});
+const mainContentFooter = () => new Footer({
+  events: {
+    focusout: (event:Event) => {
+      formService.inputEventHandler(event);
+    },
+    focusin: (event:Event) => {
+      formService.inputEventHandler(event);
+    },
+    submit: (event:Event) => {
+      formService.submit(event);
+    },
+  },
+});
 
 const messagesContent = () => {
   const compiledDateTime = new MessageItemText({
@@ -78,14 +92,13 @@ const messagesContent = () => {
       seen,
     };
 
-    const ctx = hasImage ? imageProps : props;
-    return new MessageItemImg(ctx);
+    return hasImage ? new MessageItemImg(imageProps) : new MessageItemText(props);
   });
 
   return new MessageList({
     content: [
       compiledDateTime,
-      compiledMessage,
+      ...compiledMessage,
     ]
   });
 };

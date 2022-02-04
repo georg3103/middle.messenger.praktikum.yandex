@@ -5,12 +5,16 @@ import Field from '../components/field';
 import Button from '../components/button';
 import Link from '../components/link';
 
+import FormModule from '../modules/form';
+
 import renderInDOM from '../utils/renderInDOM';
 
 import '../css/index.css';
 
+const formService = new FormModule();
+
 const template = new Layout({
-  ...data.profile,
+  ...data.enter,
   content: new Form({
     title: 'Регистрация',
     class: 'chat-form--registration',
@@ -21,6 +25,17 @@ const template = new Layout({
       class: 'link--blue chat-form__link',
       linkName: 'Войти',
     }),
+    events: {
+      focusout: (event:Event) => {
+        formService.inputEventHandler(event);
+      },
+      focusin: (event:Event) => {
+        formService.inputEventHandler(event);
+      },
+      submit: (event:Event) => {
+        formService.submit(event);
+      },
+    },
   })
 });
 

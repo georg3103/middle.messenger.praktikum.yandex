@@ -5,13 +5,8 @@ import Block from '../../modules/Block';
 
 import './styles.module.css';
 
-type ModalItem = {
-  id: string;
-  content: Block;
-}
-
 interface Props {
-  contentList: ModalItem[];
+  contentList: Block[];
 }
 
 export default class Modal extends Block {

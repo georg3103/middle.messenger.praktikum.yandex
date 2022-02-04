@@ -17,10 +17,6 @@ export default
         </ul>
     </div>
     <div class="profile-actions">
-        {{#each links}}
-            <li class="profile-actions__item">
-                {{link}}
-            </li>
-        {{/each}}
+        {{links}}
     </div>
 </div>`;

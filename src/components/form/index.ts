@@ -11,6 +11,7 @@ interface Props {
   content: Block[];
   button: Block;
   link: Block;
+  events?: Record<string, (e: Event) => void>;
 }
 
 export default class Form extends Block {
