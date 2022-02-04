@@ -6,6 +6,7 @@
 
   &__empty-messages {
     margin: auto;
+
     @mixin font 12, 12;
 
     color: $gray;

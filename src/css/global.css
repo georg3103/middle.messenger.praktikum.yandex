@@ -59,6 +59,7 @@
 
   &__item {
     margin-bottom: 16px;
+
     @mixin font 12, 14;
 
     cursor: pointer;
