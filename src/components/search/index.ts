@@ -5,15 +5,15 @@ import Block from '../../modules/Block';
 import './styles.module.css';
 
 interface Props {
-	text: string;
+  text: string;
 }
 
 export default class Search extends Block {
-	constructor(props: Props) {
-		super('div', props);
-	}
+  constructor(props: Props) {
+    super('div', props);
+  }
 
-	render(): Function {
-		return Handlebars.compile(template, { noEscape: true });
-	}
+  render(): Function {
+    return Handlebars.compile(template, { noEscape: true });
+  }
 }

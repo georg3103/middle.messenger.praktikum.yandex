@@ -1,85 +1,85 @@
 .message-item-text {
-	display: flex;
-	width: 100%;
-	margin-bottom: 10px;
+  display: flex;
+  width: 100%;
+  margin-bottom: 10px;
 
-	&__wrapper {
-		min-width: 114px;
+  &__wrapper {
+    min-width: 114px;
 
-		/* position: relative; */
-		max-width: 402px;
-		padding: 11px;
-	}
+    /* position: relative; */
+    max-width: 402px;
+    padding: 11px;
+  }
 
-	&__time {
-		@mixin font 12, 12;
-	}
+  &__time {
+    @mixin font 12, 12;
+  }
 
-	&__text {
-		margin-bottom: 4px;
+  &__text {
+    margin-bottom: 4px;
 
-		@mixin font 12, 12;
-	}
+    @mixin font 12, 12;
+  }
 
-	&__img {
-		position: relative;
+  &__img {
+    position: relative;
 
-		.message-item-text__time {
-			position: absolute;
-			right: 10px;
-			bottom: 10px;
-		}
-	}
+    .message-item-text__time {
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+    }
+  }
 
-	&__data {
-		display: flex;
-		float: right;
-		line-height: 20px;
-		text-align: right;
+  &__data {
+    display: flex;
+    float: right;
+    line-height: 20px;
+    text-align: right;
 
-		.data__status {
-			position: relative;
-			top: -6px;
-			margin-right: 2px;
-		}
-	}
+    .data__status {
+      position: relative;
+      top: -6px;
+      margin-right: 2px;
+    }
+  }
 
-	&--person {
-		.message-item-text__wrapper {
-			background-color: $light-gray;
-			border-radius: 0 12px 12px;
-		}
+  &--person {
+    .message-item-text__wrapper {
+      background-color: $light-gray;
+      border-radius: 0 12px 12px;
+    }
 
-		& .message-item-text__text {
-			@mixin font 12, 15;
-		}
+    & .message-item-text__text {
+      @mixin font 12, 15;
+    }
 
-		& .message-item-text__time {
-			color: $gray;
-		}
-	}
+    & .message-item-text__time {
+      color: $gray;
+    }
+  }
 
-	&--me {
-		.message-item-text__wrapper {
-			margin-left: auto;
-			background-color: #e4edfd;
-			border-radius: 12px 12px 0;
-		}
+  &--me {
+    .message-item-text__wrapper {
+      margin-left: auto;
+      background-color: #e4edfd;
+      border-radius: 12px 12px 0;
+    }
 
-		& .message-item-text__time {
-			color: $dark-blue;
-		}
-	}
+    & .message-item-text__time {
+      color: $dark-blue;
+    }
+  }
 
-	&--date-time {
-		margin: 26px 0 38px;
+  &--date-time {
+    margin: 26px 0 38px;
 
-		@mixin font 12, 12;
+    @mixin font 12, 12;
 
-		color: $gray;
+    color: $gray;
 
-		& .message-item-text__wrapper {
-			margin: auto;
-		}
-	}
+    & .message-item-text__wrapper {
+      margin: auto;
+    }
+  }
 }

@@ -1,16 +1,16 @@
 .aside {
-	padding: 14px 10px;
-	background: $light-gray;
+  padding: 14px 10px;
+  background: $light-gray;
 
-	&__top {
-		display: flex;
-		flex-direction: column;
-		flex-wrap: wrap;
-		margin-bottom: 14px;
-	}
+  &__top {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+  }
 
-	&__link {
-		margin-bottom: 19px;
-		margin-left: auto;
-	}
+  &__link {
+    margin-bottom: 19px;
+    margin-left: auto;
+  }
 }

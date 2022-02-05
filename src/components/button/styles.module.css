@@ -1,16 +1,16 @@
 .button {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 280px;
-	height: 37px;
-	color: $white;
-	background: $blue;
-	border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 280px;
+  height: 37px;
+  color: $white;
+  background: $blue;
+  border-radius: 8px;
 
-	@mixin font 13, 13;
+  @mixin font 13, 13;
 
-	&__circle {
-		border-radius: 50%;
-	}
+  &__circle {
+    border-radius: 50%;
+  }
 }

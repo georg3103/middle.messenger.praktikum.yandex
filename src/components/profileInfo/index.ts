@@ -7,31 +7,31 @@ import Link from '../link';
 import './styles.module.css';
 
 type Input = {
-	label: string;
-	type: string;
-	disabled: boolean;
-	value: string;
+  label: string;
+  type: string;
+  disabled: boolean;
+  value: string;
 };
 
 interface Props {
-	class?: string;
-	name?: string;
-	avatar: Block;
-	inputList: Input[];
-	button: Block;
-	links: Link[]
+  class?: string;
+  name?: string;
+  avatar: Block;
+  inputList: Input[];
+  button: Block;
+  links: Link[]
 }
 
 export default class ProfileInfo extends Block {
-	constructor(props: Props) {
-		super('div', props);
-	}
+  constructor(props: Props) {
+    super('div', props);
+  }
 
-	render(): Function {
-		return Handlebars.compile(template, { noEscape: true });
-	}
+  render(): Function {
+    return Handlebars.compile(template, { noEscape: true });
+  }
 }
 
 export {
-	data
+  data
 }

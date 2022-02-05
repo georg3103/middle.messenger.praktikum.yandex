@@ -5,19 +5,19 @@ import Block from '../../modules/Block';
 import './styles.module.css';
 
 interface Props {
-	type?: string;
-	isDataTime?: boolean;
-	time?: string;
-	message?: string;
-	seen?: boolean;
+  type?: string;
+  isDataTime?: boolean;
+  time?: string;
+  message?: string;
+  seen?: boolean;
 }
 
 export default class MessageItemText extends Block {
-	constructor(props: Props) {
-		super('div', props);
-	}
+  constructor(props: Props) {
+    super('div', props);
+  }
 
-	render(): Function {
-		return Handlebars.compile(template, { noEscape: true });
-	}
+  render(): Function {
+    return Handlebars.compile(template, { noEscape: true });
+  }
 }
