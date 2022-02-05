@@ -31,7 +31,8 @@ const queryStringify = (data: object): string => {
 
 export default class HTTPTransport {
   get = (url: string, options: Options): Promise<any> => {	 
-    return this.request(url, {...options, method: METHODS.GET}, options.timeout);
+    const { data } = options;
+    return this.request(!!data ? `${url}${queryStringify(data)}` : url, {...options, method: METHODS.GET}, options.timeout);
   };
 
   put = (url: string, options: Options): Promise<any> => {	 
@@ -56,9 +57,7 @@ export default class HTTPTransport {
       
       xhr.open(
         method,
-        isGet && !!data
-        ? `${url}${queryStringify(data)}`
-        : url,
+        url,
       );
       
       Object.keys(headers).forEach(key => {

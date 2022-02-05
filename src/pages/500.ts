@@ -1,6 +1,6 @@
-import ErrorPage from '../components/errorPage'
+import ErrorPage from '../components/errorPage';
 import Link from '../components/link';
-import Layout, { data } from '../layout/index'
+import Layout, { data } from '../layout/index';
 
 import renderInDOM from '../utils/renderInDOM';
 

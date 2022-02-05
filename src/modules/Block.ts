@@ -172,17 +172,16 @@ export default class Block {
   };
 
   _makePropsProxy(props: Props): Props {
-    const self = this;
     const oldProps: Props = JSON.parse(JSON.stringify(props));
 
     return new Proxy(props, {
-      get(target: Props, prop: string) {
+      get: (target: Props, prop: string) => {
         const value = target[prop];
         return typeof value === 'function' ? value.bind(target) : value;
       },
-      set(target: Props, prop: string, value): boolean {
+      set: (target: Props, prop: string, value): boolean => {
         target[prop] = value;
-        self._componentDidUpdate(oldProps, target);
+        this._componentDidUpdate(oldProps, target);
         return true;
       },
       deleteProperty() {

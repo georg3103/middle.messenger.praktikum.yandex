@@ -60,10 +60,6 @@ export default class Form {
     const _value = input.value;
 
     if (_type && _value) {
-      if (_type === 'password' && input.getAttribute('name') === 'password_confirm') {
-        return new RegExp(validationMapper[_type]).test(_value) && _value === (document.querySelector('input[name=password]') as HTMLFormElement).value;
-      }
-
       return new RegExp(validationMapper[_type]).test(_value);
     }
 

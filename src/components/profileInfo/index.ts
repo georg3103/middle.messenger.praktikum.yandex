@@ -19,7 +19,7 @@ interface Props {
   avatar: Block;
   inputList: Input[];
   button: Block;
-  links: Link[]
+  links: Link[];
 }
 
 export default class ProfileInfo extends Block {
