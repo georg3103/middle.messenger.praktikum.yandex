@@ -14,32 +14,32 @@ import '../css/index.css';
 const formService = new FormModule();
 
 const template = new Layout({
-  type: data.profile.type,
-  content: new Profile({
-    href: 'index.html',
-    profileMain: new ProfileEdit({
-      avatar: new Avatar({
-        imgSrc: '',
-        class: 'avatar--big profile-block__avatar avatar--edit',
-        editText: 'Поменять аватар',
-      }),
-      inputList: profileEditData.fullData,
-      button: new Button({
-        buttonText: 'Сохранить',
-      }),
-      events: {
-        focusout: (event:Event) => {
-          formService.inputEventHandler(event);
-        },
-        focusin: (event:Event) => {
-          formService.inputEventHandler(event);
-        },
-        submit: (event:Event) => {
-          formService.submit(event);
-        },
-      },
-    }),
-  }),
+	type: data.profile.type,
+	content: new Profile({
+		href: 'index.html',
+		profileMain: new ProfileEdit({
+			avatar: new Avatar({
+				imgSrc: '',
+				class: 'avatar--big profile-block__avatar avatar--edit',
+				editText: 'Поменять аватар',
+			}),
+			inputList: profileEditData.fullData,
+			button: new Button({
+				buttonText: 'Сохранить',
+			}),
+			events: {
+				focusout: (event:Event) => {
+					formService.inputEventHandler(event);
+				},
+				focusin: (event:Event) => {
+					formService.inputEventHandler(event);
+				},
+				submit: (event:Event) => {
+					formService.submit(event);
+				},
+			},
+		}),
+	}),
 });
 
 renderInDOM(document.querySelector('#app'), template.getContent());

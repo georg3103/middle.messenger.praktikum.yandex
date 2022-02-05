@@ -6,19 +6,19 @@ import Block from '../../modules/Block';
 import './styles.module.css';
 
 interface Props {
-  contentList: Block[];
+	contentList: Block[];
 }
 
 export default class ChatContainer extends Block {
-  constructor(props: Props) {
-    super('div', props);
-  }
+	constructor(props: Props) {
+		super('div', props);
+	}
 
-  render(): Function {
+	render(): Function {
 		return Handlebars.compile(template, { noEscape: true });
 	}
 }
 
 export {
-  data
+	data
 }

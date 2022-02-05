@@ -1,4 +1,4 @@
 @define-mixin font $font-size, $line-height {
-  font-size: calc($font-size / $font_base * 1rem);
-  line-height: calc($line-height / $font_base * 1rem);
+	font-size: calc($font-size / $font_base * 1rem);
+	line-height: calc($line-height / $font_base * 1rem);
 }

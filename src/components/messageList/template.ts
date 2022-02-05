@@ -1,5 +1,5 @@
 export default
 `<ul class="message-list {{class}}">
-    {{content}}
+	{{content}}
 </ul>
 `;

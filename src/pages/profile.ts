@@ -11,41 +11,41 @@ import '../css/index.css';
 import Link from '../components/link';
 
 const links = [
-  {
-    href: '/edit.html',
-    class: 'link--blue chat-form__link',
-    linkName: 'Изменить данные',
-  },
-  {
-    href: '/password.html',
-    class: 'link--blue chat-form__link',
-    linkName: 'Изменить пароль',
-  },
-  {
-    href: '/login.html',
-    class: 'link--red chat-form__link',
-    linkName: 'Выйти',
-  },
+	{
+		href: '/edit.html',
+		class: 'link--blue chat-form__link',
+		linkName: 'Изменить данные',
+	},
+	{
+		href: '/password.html',
+		class: 'link--blue chat-form__link',
+		linkName: 'Изменить пароль',
+	},
+	{
+		href: '/login.html',
+		class: 'link--red chat-form__link',
+		linkName: 'Выйти',
+	},
 ];
 
 const template = new Layout({
-  type: data.profile.type,
-  content: new Profile({
-    href: 'index.html',
-    profileMain: new ProfileInfo({
-      avatar: new Avatar({
-        imgSrc: '',
-        class: 'avatar--big profile-block__avatar avatar--edit',
-        editText: 'Поменять аватар',
-      }),
-      name: 'Иван',
-      inputList: profileInfoData,
-      button: new Button({
-        buttonText: 'Сохранить',
-      }),
-      links: links.map(item => new Link(item))
-    }),
-  }),
+	type: data.profile.type,
+	content: new Profile({
+		href: 'index.html',
+		profileMain: new ProfileInfo({
+			avatar: new Avatar({
+				imgSrc: '',
+				class: 'avatar--big profile-block__avatar avatar--edit',
+				editText: 'Поменять аватар',
+			}),
+			name: 'Иван',
+			inputList: profileInfoData,
+			button: new Button({
+				buttonText: 'Сохранить',
+			}),
+			links: links.map(item => new Link(item))
+		}),
+	}),
 });
 
 renderInDOM(document.querySelector('#app'), template.getContent());

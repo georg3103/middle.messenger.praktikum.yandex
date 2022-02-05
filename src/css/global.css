@@ -1,85 +1,85 @@
 #app {
-  height: 100%;
+	height: 100%;
 }
 
 #app > div {
-  height: 100%;
+	height: 100%;
 }
 
 .actions {
-  position: relative;
-  width: 32px;
-  height: 32px;
+	position: relative;
+	width: 32px;
+	height: 32px;
 
-  &:hover {
-    .actions__wrapper {
-      opacity: 1;
-      pointer-events: auto;
-    }
+	&:hover {
+		.actions__wrapper {
+			opacity: 1;
+			pointer-events: auto;
+		}
 
-    .actions__button {
-      svg {
-        fill: $dark-blue;
-      }
-    }
-  }
+		.actions__button {
+			svg {
+				fill: $dark-blue;
+			}
+		}
+	}
 
-  &__button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    cursor: pointer;
+	&__button {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		height: 100%;
+		cursor: pointer;
 
-    svg {
-      fill: $blue;
-    }
-  }
+		svg {
+			fill: $blue;
+		}
+	}
 
-  &__wrapper {
-    position: absolute;
-    top: 32px;
-    right: 0;
-    display: block;
-    width: 210px;
-    padding-top: 24px;
-    opacity: 0;
-    transition: opacity 0.3s;
-    pointer-events: none;
-  }
+	&__wrapper {
+		position: absolute;
+		top: 32px;
+		right: 0;
+		display: block;
+		width: 210px;
+		padding-top: 24px;
+		opacity: 0;
+		transition: opacity 0.3s;
+		pointer-events: none;
+	}
 
-  &__list {
-    padding: 15px;
-    list-style: none;
-    background-color: $white;
-    border-radius: 12px;
-    box-shadow: #00000014;
-  }
+	&__list {
+		padding: 15px;
+		list-style: none;
+		background-color: $white;
+		border-radius: 12px;
+		box-shadow: #00000014;
+	}
 
-  &__item {
-    margin-bottom: 16px;
+	&__item {
+		margin-bottom: 16px;
 
-    @mixin font 12, 14;
+		@mixin font 12, 14;
 
-    cursor: pointer;
-    transition: color 0.3s;
+		cursor: pointer;
+		transition: color 0.3s;
 
-    &:last-child {
-      margin-bottom: 0;
-    }
+		&:last-child {
+			margin-bottom: 0;
+		}
 
-    &:hover {
-      color: $dark-blue;
-    }
+		&:hover {
+			color: $dark-blue;
+		}
 
-    button {
-      display: flex;
-      align-items: center;
+		button {
+			display: flex;
+			align-items: center;
 
-      svg {
-        margin-right: 15px;
-      }
-    }
-  }
+			svg {
+				margin-right: 15px;
+			}
+		}
+	}
 }

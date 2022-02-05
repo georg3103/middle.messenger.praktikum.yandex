@@ -6,24 +6,24 @@ import Block from '../../modules/Block';
 import './styles.module.css';
 
 interface Props {
-  class?: string;
-  title: string;
-  content: Block[];
-  button: Block;
-  link: Block;
-  events?: Record<string, (e: Event) => void>;
+	class?: string;
+	title: string;
+	content: Block[];
+	button: Block;
+	link: Block;
+	events?: Record<string, (e: Event) => void>;
 }
 
 export default class Form extends Block {
-  constructor(props: Props) {
-    super('div', props);
-  }
+	constructor(props: Props) {
+		super('div', props);
+	}
 
-  render(): Function {
+	render(): Function {
 		return Handlebars.compile(template, { noEscape: true });
 	}
 }
 
 export {
-  data
+	data
 }

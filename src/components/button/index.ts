@@ -5,15 +5,15 @@ import Block from '../../modules/Block';
 import './styles.module.css';
 
 interface Props {
-  buttonText: string;
+	buttonText: string;
 }
 
 export default class Button extends Block {
-  constructor(props: Props) {
-    super('div', props);
-  }
+	constructor(props: Props) {
+		super('div', props);
+	}
 
-  render(): Function {
+	render(): Function {
 		return Handlebars.compile(template, { noEscape: true });
 	}
 }
