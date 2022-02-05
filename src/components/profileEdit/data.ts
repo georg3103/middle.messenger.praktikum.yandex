@@ -49,21 +49,21 @@ const passwordData = [
     type: 'password',
     disabled: true,
     value: '123qweQWE',
-    name: 'password'
+    name: 'password',
   },
   {
     label: 'Новый пароль',
     type: 'password',
     disabled: true,
     value: '1234qweQWE',
-    name: 'password'
+    name: 'password',
   },
   {
     label: 'Повторите новый пароль',
     type: 'password',
     disabled: true,
     value: '1234qweQWE',
-    name: 'password'
+    name: 'password',
   },
 ];
 
