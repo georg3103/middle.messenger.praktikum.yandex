@@ -7,19 +7,19 @@ export default [
   },
   {
     label: 'Логин',
-    type: 'text',
+    type: 'login',
     disabled: true,
     value: 'ivanivanov',
   },
   {
     label: 'Имя',
-    type: 'text',
+    type: 'name',
     disabled: true,
     value: 'Иван',
   },
   {
     label: 'Фамилия',
-    type: 'text',
+    type: 'name',
     disabled: true,
     value: 'Иванов',
   },

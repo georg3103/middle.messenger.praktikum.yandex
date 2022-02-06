@@ -7,19 +7,19 @@ const registration = [
   },
   {
     label: 'Логин',
-    type: 'text',
+    type: 'login',
     value: '',
     name: 'login',
   },
   {
     label: 'Имя',
-    type: 'text',
+    type: 'name',
     value: '',
     name: 'first_name',
   },
   {
     label: 'Фамилия',
-    type: 'text',
+    type: 'name',
     value: '',
     name: 'second_name',
   },
@@ -46,7 +46,7 @@ const registration = [
 const login = [
   {
     label: 'Логин',
-    type: 'text',
+    type: 'login',
     value: '',
     name: 'login',
   },
