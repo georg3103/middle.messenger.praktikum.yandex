@@ -1,7 +1,7 @@
 import Handlebars from 'handlebars';
 import template from './template';
 import data from './data';
-import Block from '../../modules/Block';
+import Block from '../../modules/BaseBlock';
 import Link from '../link';
 
 import './styles.module.css';
@@ -22,13 +22,15 @@ interface Props {
   links: Link[];
 }
 
+const compileFn = Handlebars.compile(template, { noEscape: true });
+
 export default class ProfileInfo extends Block {
   constructor(props: Props) {
     super('div', props);
   }
 
-  render(): Function {
-    return Handlebars.compile(template, { noEscape: true });
+  render(): string {
+    return this.compile(compileFn, this.props);
   }
 }
 

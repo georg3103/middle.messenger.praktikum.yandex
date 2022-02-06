@@ -1,7 +1,7 @@
 import Handlebars from 'handlebars';
 import data from './data';
 import template from './template';
-import Block from '../modules/Block';
+import Block from '../modules/BaseBlock';
 
 import './styles.css';
 
@@ -10,13 +10,15 @@ interface Props {
   content: string | Block | Block[]; // TODO:
 }
 
+const compileFn = Handlebars.compile(template, { noEscape: true });
+
 export default class Layout extends Block {
   constructor(props: Props) {
     super('div', props);
   }
-
-  render(): Function {
-    return Handlebars.compile(template, { noEscape: true });
+  
+  render(): string {
+    return this.compile(compileFn, this.props);
   }
 }
 

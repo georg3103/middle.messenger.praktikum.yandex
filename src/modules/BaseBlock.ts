@@ -81,17 +81,20 @@ export default class Block {
     return element;
   }
 
+  compile(compileFn: Function, props: Props): string {
+    return compileFn(this._preCompileTemplate(props));
+  }
+
   _render(): void {
-    const compileTemplate = this.render();
-    const html = compileTemplate(this._preCompileTemplate());
+    const html = this.render();
     const element = this._compileDomElement(html);
     this._element.insertAdjacentElement('afterbegin', element);
     this._removeEvents();
     this._addEvents();
   }
 
-  _preCompileTemplate() {
-    return Object.entries(this.props)
+  _preCompileTemplate(props: Props) {
+    return Object.entries(props)
       .reduce((acc, item) => {
         const [ key, instance ] = item;
         const isBlockArray = Array.isArray(instance) && instance.every(item => item instanceof Block);
@@ -142,7 +145,7 @@ export default class Block {
 
           subComponents.forEach(subComponent => subComponentsParent.removeChild(subComponent));
       })
-    }
+    } 
     return element;
   }
 
@@ -154,9 +157,7 @@ export default class Block {
     return this.element;
   }
 
-  render(): Function {
-    return () => {};
-  }
+  render(): any {}
 
   isPropsChanged<T>(oldProps: T, newProps: T): boolean {
     // TODO: add shallow equal
