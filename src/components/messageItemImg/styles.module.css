@@ -19,6 +19,7 @@
     text-align: right;
     background-color: rgb(82 82 82 / 50%);
     border-radius: 30px;
+
     @mixin font 9, 9;
   }
 

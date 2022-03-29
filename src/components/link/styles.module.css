@@ -1,6 +1,7 @@
 .link {
   display: inline-flex;
   align-items: baseline;
+
   @mixin font 12, 12;
 
   &::after {

@@ -1,6 +1,7 @@
 .profile-block {
   &__name {
     margin-top: 21px;
+
     @mixin font 16, 16;
 
     text-align: center;
@@ -54,6 +55,7 @@
   justify-content: space-between;
   padding: 10px 0;
   border-bottom: 1px solid $medium-gray;
+
   @mixin font 13, 13;
 
   &__input {
@@ -62,6 +64,10 @@
     background-color: transparent;
     border: none;
     outline: none;
+  }
+
+  &.error {
+    border-bottom: 1px solid $red;
   }
 }
 

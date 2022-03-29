@@ -13,11 +13,13 @@
     float: right;
     line-height: 20px;
     text-align: right;
+
     @mixin font 12, 12;
   }
 
   &__text {
     margin-bottom: 4px;
+
     @mixin font 12, 12;
   }
 
@@ -60,6 +62,7 @@
 
   &__date-time {
     margin: 26px 0 38px;
+
     @mixin font 12, 12;
 
     color: $gray;

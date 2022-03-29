@@ -15,6 +15,7 @@
 
   &__title {
     margin-bottom: 50px;
+
     @mixin font 15, 15;
 
     &--error {
@@ -36,6 +37,7 @@
     padding: 14px 0 0;
     color: $red;
     text-align: center;
+
     @mixin font 12, 12;
   }
 }

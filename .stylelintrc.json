@@ -1,0 +1,18 @@
+{
+  "extends": "stylelint-config-standard",
+  "rules": {
+    "at-rule-no-unknown": [true, {
+      "ignoreAtRules": ["function", "if", "each", "include", "mixin", "define-mixin"]
+    }],
+    "block-closing-brace-newline-after": "always-multi-line",
+    "font-family-no-missing-generic-family-keyword": null,
+    "selector-class-pattern": null,
+    "no-descending-specificity": null,
+    "declaration-block-no-redundant-longhand-properties": null
+  },
+  "ignoreFiles": [
+    "dist/**/*",
+    ".parcel-cache/**/*",
+    "node_modules/**/*"
+  ]
+}

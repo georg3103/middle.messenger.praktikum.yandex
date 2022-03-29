@@ -11,7 +11,12 @@
     color: $gray;
     text-align: left;
     border-bottom: 1px solid $blue;
+
     @mixin font 13, 13;
+
+    &.error {
+      border-bottom: 1px solid $red;
+    }
   }
 
   &__input {

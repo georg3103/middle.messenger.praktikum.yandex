@@ -1,10 +1,12 @@
 .chat-container {
+  height: 100%;
   display: flex;
   flex-direction: column;
   padding: 0 24px 16px;
 
   &__empty-messages {
     margin: auto;
+
     @mixin font 12, 12;
 
     color: $gray;

@@ -4,7 +4,7 @@
   "description": "index.html",
   "scripts": {
     "start": "npm run build && node ./server.js",
-    "build": "npm run clear && parcel build static/*.html --no-source-maps",
+    "build": "npm run clear && parcel build static/*.html",
     "clear": "rm -rf dist .cache .parcel-cache",
     "stylelint": "stylelint '**/*.css'",
     "eslint": "eslint ./ --ext .js"
@@ -14,6 +14,8 @@
   "license": "ISC",
   "browserslist": "last 2 versions",
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.10.2",
+    "@typescript-eslint/parser": "^5.10.2",
     "cssnano": "^5.0.14",
     "eslint": "^8.6.0",
     "eslint-config-airbnb-base": "^15.0.0",
@@ -38,7 +40,8 @@
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-standard": "^24.0.0",
     "stylelint-order": "^5.0.0",
-    "stylelint-prettier": "^2.0.0"
+    "stylelint-prettier": "^2.0.0",
+    "typescript": "^4.5.5"
   },
   "lint-staged": {
     "*.(css|scss)": [
@@ -50,7 +53,8 @@
     "watcherGlob": "**"
   },
   "dependencies": {
+    "express": "^4.17.2",
     "handlebars": "^4.7.7",
-    "express": "^4.17.2"
+    "uuid": "^8.3.2"
   }
 }

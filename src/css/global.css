@@ -2,6 +2,10 @@
   height: 100%;
 }
 
+#app > div {
+  height: 100%;
+}
+
 .actions {
   position: relative;
   width: 32px;
@@ -55,6 +59,7 @@
 
   &__item {
     margin-bottom: 16px;
+
     @mixin font 12, 14;
 
     cursor: pointer;
